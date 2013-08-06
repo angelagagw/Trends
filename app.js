@@ -25,9 +25,41 @@ Ext.application({
     requires: [
         'Ext.MessageBox'
     ],
+    
+    controllers: [
+    	'TrendGroups', 
+    	'Trends', 
+    	'Chart'
+    ],
 
+	models: [
+		'TrendGroup',
+		'Trend',
+		'TrendOccurance'
+	],
+	
+	stores: [
+		'TrendGroups',
+		'Trends',
+		'TrendOccurances'
+	],
+	
     views: [
-        'Main'
+    	//Nav 
+        'Main',
+        //Trend Groups
+        'TrendGroup.TrendGroupList',
+        'TrendGroup.TrendGroupEditList',
+        'TrendGroup.TrendGroupAdd',
+        'TrendGroup.TrendGroupListItem',
+        //Trend
+        'Trend.TrendListItem',
+        'Trend.TrendList',
+        'Trend.TrendAdd',
+        'Trend.TrendOccuranceList',
+        //Charts
+        'TrendCharts.TrendGroupBar',
+        'TrendCharts.Canvas'
     ],
 
     icon: {
@@ -53,7 +85,8 @@ Ext.application({
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view
-        Ext.Viewport.add(Ext.create('MyTrends.view.Main'));
+        //Ext.Viewport.add(Ext.create('MyTrends.view.TrendGroup.TrendGroupList'));
+		Ext.Viewport.add(Ext.create('MyTrends.view.Main'));
     },
 
     onUpdated: function() {
